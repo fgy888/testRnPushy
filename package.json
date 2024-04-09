@@ -10,8 +10,12 @@
     "test": "jest"
   },
   "dependencies": {
+    "node-bsdiff": "^0.1.8",
     "react": "18.2.0",
-    "react-native": "0.71.17"
+    "react-native": "0.71.17",
+    "react-native-swiper": "^1.6.0-rc.3",
+    "react-native-update": "^10.3.1",
+    "rn-vconsole-panel": "^1.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

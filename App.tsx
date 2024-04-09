@@ -15,6 +15,7 @@ import {
   Text,
   useColorScheme,
   View,
+  Platform
 } from 'react-native';
 
 import {
@@ -24,6 +25,19 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+
+import RNConsole from 'rn-vconsole-panel';
+
+import { PushyProvider, Pushy } from "react-native-update";
+
+import Charts from './views/Charts';
+
+import _updateConfig from './update.json';
+const { appKey } = _updateConfig[Platform.OS];
+// 唯一必填参数是appKey，其他选项请参阅 api 文档
+const pushyClient = new Pushy({
+  appKey,
+});
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -68,15 +82,21 @@ function App(): JSX.Element {
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
+      <RNConsole
+        definedData={{
+          userInfo: {},
+        }}
+      />
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
         <Header />
+        <Charts />
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <Section title="Step One">
+          <Section title="Step One 006 Fu0409002">
             Edit <Text style={styles.highlight}>App.tsx</Text> to change this
             screen and then come back to see your edits.
           </Section>
@@ -115,4 +135,14 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+// export default App;
+
+// 在根组件外加上PushyProvider后导出
+export default function Root() {
+  return (
+    <PushyProvider client={pushyClient}>
+      {/* ↓ 整个应用的根组件放到PushyProvider中 */}
+      <App />
+    </PushyProvider>
+  );
+}
