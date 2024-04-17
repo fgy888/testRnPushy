@@ -96,7 +96,7 @@ function App(): JSX.Element {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <Section title="Step One 0417-v1.1.7-diffFromApk-4">
+          <Section title="Step One 0417-v1.1.7-diffFromPpk-5">
             Edit <Text style={styles.highlight}>App.tsx</Text> to change this
             screen and then come back to see your edits.
           </Section>
