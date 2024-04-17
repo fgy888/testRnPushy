@@ -7,7 +7,10 @@
     "ios": "react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start",
-    "test": "jest"
+    "test": "jest",
+    "bundle:android": "pushy bundle --platform android",
+    "yxt-bundle": "yxt-pushy bundle --platform android",
+    "bundle:ios": "pushy bundle --platform ios"
   },
   "dependencies": {
     "node-bsdiff": "^0.1.8",
@@ -32,7 +35,8 @@
     "metro-react-native-babel-preset": "0.73.10",
     "prettier": "^2.4.1",
     "react-test-renderer": "18.2.0",
-    "typescript": "4.8.4"
+    "typescript": "4.8.4",
+    "yxt-rn-update-cli": "^0.0.1"
   },
   "jest": {
     "preset": "react-native"
